@@ -1,0 +1,10 @@
+@font-face {
+    font-family: "VT323-Regular";
+    font-style: normal;
+    font-weight: 400;
+    src: url("/fonts/VT323-Regular.eot");
+    src: url("/fonts/VT323-Regular.eot?#iefix") format("embedded-opentype"),
+         url("/fonts/VT323-Regular.woff") format("woff"),
+         url("/fonts/VT323-Regular.ttf") format("truetype"),
+         url("/fonts/VT323-Regular.svg#VT323-Regular") format("svg");
+}

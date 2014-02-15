@@ -1,0 +1,40 @@
+.messages {
+    display: block;
+    height: 64px;
+
+    /* center messages vertically */
+    position: absolute;
+    top: 50%;
+    margin-top: -32px;
+
+    left: 0;
+    right: 0;
+
+    font-family: VT323-Regular, sans-serif;
+    font-size: 64px;
+    color: red;
+    text-transform: uppercase;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.messages > * {
+    /* use inline block so messages are centered horizontally */
+    display: inline-block;
+}
+
+:not(.win) .game-over-message {
+    opacity: 0;
+/* the delay here should match how long the aliens take to get to the bottom */
+/*  animation: supersize 1s linear 45s; */
+/*  animation-fill-mode: backwards;*/
+}
+
+@keyframes supersize {
+    from: {
+        opacity: 0;
+    }
+    to: {
+        opacity: 1;
+    }
+}

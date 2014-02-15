@@ -1,0 +1,15 @@
+#\ -s puma -p 9292
+use Rack::Static,
+:root => 'public',
+:urls => ['/images', '/js', '/css', '/fonts']
+
+run lambda { |env|
+  [
+    200,
+    {
+      'Content-Type'  => 'text/html',
+      'Cache-Control' => 'public, max-age=86400'
+    },
+    File.open('public/index.html', File::RDONLY)
+  ]
+}

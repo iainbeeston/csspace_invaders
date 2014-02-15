@@ -1,0 +1,66 @@
+.alien-swarm {
+    display: inline-block;
+    position: absolute;
+    width: 100%;
+
+    /* cubic ease in for the attack animation (gets faster and faster) - aliens get to the bottom after 45s*/
+    animation: attack 45s cubic-bezier(0.550, 0.055, 0.675, 0.190);
+    /* make sure the swarm stays at the bottom after the animation is completed */
+    animation-fill-mode: forwards;
+
+    /* alien swarm is a list */
+    list-style: none;
+}
+
+@keyframes attack {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        /* space height - swarm height */
+        transform: translateY(320px);
+    }
+}
+
+.alien-swarm > * {
+    float: left;
+    margin: 0 5px;
+    /* webkit adds extra vertical spacing if there is line height */
+    line-height: 1px;
+    /* can't define two transforms on swarm as they overwrite each other */
+    animation: side-to-side 3s linear infinite alternate;
+}
+
+/* arrange swarm in rows of 7 */
+.alien-swarm > *:nth-child(7n+1) {
+    clear: left;
+}
+
+@keyframes side-to-side {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* space width - swarm width */
+        transform: translateX(610px);
+    }
+}
+
+.alien {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-size: 100% 100%;
+}
+
+.alien-swarm > *:nth-child(3n) .alien {
+    background-image: url(/images/alien_1.gif);
+}
+
+.alien-swarm > *:nth-child(3n+1) .alien {
+    background-image: url(/images/alien_2.gif);
+}
+
+.alien-swarm > *:nth-child(3n+2) .alien {
+    background-image: url(/images/alien_3.gif);
+}

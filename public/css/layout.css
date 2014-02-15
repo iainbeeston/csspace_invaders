@@ -1,0 +1,23 @@
+/* this is just for the sake of codepen */
+body {
+    background-image: url(/images/stars.png);
+}
+
+.space-invaders {
+    display: block;
+    position: relative;
+    /* make sure it's at least as big as its' children */
+    min-width: 960px;
+    overflow: hidden;
+}
+
+/* this is where the game is played out */
+.space {
+    display: block;
+    position: relative;
+
+    width: 960px;
+    margin: 0 auto;
+
+    height: 400px;
+}
