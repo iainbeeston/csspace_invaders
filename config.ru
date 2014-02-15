@@ -1,4 +1,3 @@
-#\ -s puma -p 9292
 use Rack::Static,
 :root => 'public',
 :urls => ['/images', '/js', '/css', '/fonts']
