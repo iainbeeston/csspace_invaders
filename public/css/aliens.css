@@ -24,11 +24,14 @@
 
 .alien-swarm > * {
     float: left;
+    /* it's important that the swarm holds it's shape even when it's contents are not visible */
+    width: 40px;
+    height: 40px;
     margin: 0 5px;
     /* webkit adds extra vertical spacing if there is line height */
     line-height: 1px;
     /* can't define two transforms on swarm as they overwrite each other */
-    animation: side-to-side 3s linear infinite alternate;
+    animation: side-to-side 5s linear infinite alternate;
 }
 
 /* arrange swarm in rows of 7 */
@@ -47,20 +50,43 @@
 }
 
 .alien {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    background-size: 100% 100%;
+    display: none;
 }
 
-.alien-swarm > *:nth-child(3n) .alien {
+.alien-target {
+    display: inline-block;
+    /* alien-width */
+    width: 40px;
+    height: 400px;
+    background-size: 40px 40px;
+    background-repeat: no-repeat;
+}
+
+.alien:checked + .alien-target {
+    /* when the alien has been hit, remove it */
+    display: none;
+}
+
+.alien-swarm > *:nth-child(3n) .alien-target {
     background-image: url(/images/alien_1.gif);
 }
 
-.alien-swarm > *:nth-child(3n+1) .alien {
+.debug .alien-swarm > *:nth-child(3n) .alien-target {
+    background-color: red;
+}
+
+.alien-swarm > *:nth-child(3n+1) .alien-target {
     background-image: url(/images/alien_2.gif);
 }
 
-.alien-swarm > *:nth-child(3n+2) .alien {
+.debug .alien-swarm > *:nth-child(3n+1) .alien-target {
+    background-color: green;
+}
+
+.alien-swarm > *:nth-child(3n+2) .alien-target {
     background-image: url(/images/alien_3.gif);
+}
+
+.debug .alien-swarm > *:nth-child(3n+2) .alien-target {
+    background-color: blue;
 }
