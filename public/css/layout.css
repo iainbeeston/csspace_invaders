@@ -6,9 +6,7 @@ body {
 .space-invaders {
     display: block;
     position: relative;
-    /* make sure it's at least as big as its' children */
-    min-width: 960px;
-    overflow: hidden;
+    overflow: scroll;
 }
 
 /* this is where the game is played out */
